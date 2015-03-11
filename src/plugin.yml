@@ -1,0 +1,24 @@
+name: EntityLagMeasure
+version: 0.0.1
+author: apscience@live.com
+description: Attempts to locate clumps of entities
+main: com.wd.elm.Main
+
+commands:
+    entitylagmeasure:
+        description: primary command for entity lag measure tool
+        usage: /entitylagmeasure
+    elm:
+        description: primary command for entity lag measure tool
+        usage: /elm
+
+permissions:
+    entitylagmeasure.summary:
+        description: Summarize entities across all worlds or a specific world
+        default: op
+    entitylagmeasure.locate:
+        description: Find the coordinates of large clumps of entities
+        default: op
+    entitylagmeasure.tp:
+        description: Allows teleporting to previously located clumps of mobs
+        default: op
