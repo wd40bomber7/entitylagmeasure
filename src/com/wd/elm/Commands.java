@@ -20,6 +20,13 @@ public class Commands implements Listener, CommandExecutor {
 		
 		commands.add(help);
 		commands.add(new SummarizeCommand());
+		
+		// Need the playerlocationcache to be shared
+		PlayerLocationCache locations = new PlayerLocationCache();
+		commands.add(new LocateCommand(locations));
+		commands.add(new TpCommand(locations));
+		commands.add(new DampenAI());
+		commands.add(new FreezeHoppers());
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd,

@@ -1,9 +1,11 @@
 name: EntityLagMeasure
-version: 0.0.1
+version: 0.1.0
 author: apscience@live.com
 description: Attempts to locate clumps of entities
 main: com.wd.elm.Main
-
+softdepend: 
+  - GriefPrevention
+  - WorldGuard
 commands:
     entitylagmeasure:
         description: primary command for entity lag measure tool
@@ -21,4 +23,10 @@ permissions:
         default: op
     entitylagmeasure.tp:
         description: Allows teleporting to previously located clumps of mobs
+        default: op
+    entitylagmeasure.dampen:
+        description: Allows the user to turn off ai of nearby entities
+        default: op
+    entitylagmeasure.freeze:
+        description: Allows the user to disable hoppers in a wg region
         default: op

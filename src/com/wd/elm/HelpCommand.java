@@ -14,10 +14,12 @@ public class HelpCommand implements ICommand {
 	
 	public void ShowAllHelp(CommandSender toSender)
 	{
-		toSender.sendMessage(Main.Header + "EntityLagMeasure toolset " + Main.Version);
+		toSender.sendMessage(Main.Header + "ELM " + Main.Version);
 		toSender.sendMessage(Main.Header + "Commands:");
 		for (ICommand command : commandList) {
-			toSender.sendMessage(Main.Header + "  /elm " + command.GetShortHelp());
+			String requiredPermission = command.GetRequiredPermission();
+			if (requiredPermission.length() == 0 || toSender.hasPermission(requiredPermission))
+				toSender.sendMessage(ChatColor.GREEN + "/elm " + command.GetShortHelp());
 		}
 		toSender.sendMessage(Main.Header + "Do /elm help <commandname> for help on a specific command.");
 	}
@@ -36,7 +38,7 @@ public class HelpCommand implements ICommand {
 	public String GetCommand() {
 		return "help";
 	}
-
+	
 	@Override
 	public boolean Execute(CommandSender sender, String[] args) {
 		if (args.length == 2){
